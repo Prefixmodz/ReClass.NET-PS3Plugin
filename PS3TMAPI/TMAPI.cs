@@ -202,10 +202,10 @@ public class TMAPI
 
         if (Parameters.ProcessIDs.Length > 0)
         {
-            Parameters.ProcessID = Convert.ToUInt32(pid);
+            Parameters.ProcessID = pid;
             PS3TMAPI.GetModuleList(Target, Parameters.ProcessID, out Parameters.ModuleIDs);
-            PS3TMAPI.ProcessAttach(Target, PS3TMAPI.UnitType.PPU, pid);
-            PS3TMAPI.ProcessContinue(Target, pid);
+            PS3TMAPI.ProcessAttach(Target, PS3TMAPI.UnitType.PPU, Parameters.ProcessID);
+            PS3TMAPI.ProcessContinue(Target, Parameters.ProcessID);
 
             GetThreadInfo();
 
